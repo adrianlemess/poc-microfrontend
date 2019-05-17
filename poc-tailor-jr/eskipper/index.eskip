@@ -1,0 +1,8 @@
+path1: Path("/path1")
+    -> setPath("/path1")
+    -> "http://localhost:3000";
+path2: Path("/path2")
+    -> setPath("/path2")
+    -> "http://localhost:3000";
+index: Path("/")
+    -> "http://localhost:3000";

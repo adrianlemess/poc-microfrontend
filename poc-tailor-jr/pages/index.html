@@ -1,0 +1,52 @@
+<head>
+    <title>Poc Microfronts with Tailor example</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <style>
+        body {
+            background: #ECEFF4;
+        }
+
+        .fragment-error {
+            background: #ff5252 !important;
+            padding: 20px;
+            margin-top: 50px;
+            color: #fff;
+        }
+    </style>
+    <script>
+        (function (d) {
+            require(d);
+            var arr = ['react', 'react-dom', 'prop-types', 'classnames', 'proppy', 'proppy-react', 'vue'];
+            while (i = arr.pop())(function (dep) {
+                console.log(dep)
+                define(dep, d, function (b) {
+                    return b[dep];
+                })
+            })(i);
+        }(['http://localhost:6006/public/bundleCommon.js']));
+    </script>
+</head>
+
+<body>
+    <div id="header">
+        <span class="fragment-error">Header failed to load</span>
+    </div>
+    <fragment src="http://localhost:4200"></fragment>
+
+    <div id="counter" style="margin-top: 300px;">
+        <span class="fragment-error">Counter failed to load</span>
+    </div>
+    <fragment src="http://localhost:5000"></fragment>
+
+    <counter-view></counter-view>
+    <fragment async src="http://localhost:4000"></fragment>
+
+    <p>
+        <a href="/path1"> Link path1 </a>
+    </p>
+    <p>
+        <a href="/path2"> Link path2 </a>
+    </p>
+</body>
+
+</html>

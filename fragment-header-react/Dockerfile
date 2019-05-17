@@ -1,0 +1,26 @@
+FROM node:10.14.2-alpine
+
+ARG DEPLOY_URL
+ARG env=dev
+
+ENV PORT=4200
+ENV DEPLOY_URL $DEPLOY_URL
+
+RUN rm -rf /tmp/* /var/cache/apk/* *.tar.gz ~/.npm \
+  && npm cache verify
+
+ADD package*.json /var/build/
+
+WORKDIR /var/build
+
+RUN cd /var/build
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+EXPOSE 4200
+
+CMD [ "node", "fragment.js" ]
