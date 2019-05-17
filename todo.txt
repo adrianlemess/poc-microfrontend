@@ -1,0 +1,2 @@
+- Passar os builds pra production e ter environments pra todas as apps
+- Adicionar outputhash nos arquivos

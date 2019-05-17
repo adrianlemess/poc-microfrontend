@@ -1,0 +1,58 @@
+version: "3.3"
+services:
+  # Serviços default e obrigatórios
+  tailor:
+    build:
+      context: ./poc-router-skipper
+      args:
+        - env=${env}
+    ports:
+      - "3000:3000"
+    expose:
+      - 3000
+    links: 
+      - fragment-common
+      - fragment-counter-view
+      - fragment-header
+      - fragment-set-counter
+    depends_on: 
+      - fragment-common
+      - fragment-counter-view
+      - fragment-header
+      - fragment-set-counter
+  fragment-common:
+    build:
+      context: ./fragment-common
+      args:
+        - env=${env}
+    ports:
+      - "6006:6006"
+    expose:
+      - 6006
+  fragment-counter-view:
+    build:
+      context: ./fragment-counter-view
+      args:
+        - env=${env}
+    ports:
+      - "4000:4000"
+    expose:
+      - 4000
+  fragment-header:
+    build:
+      context: ./fragment-header
+      args:
+        - env=${env}
+    ports:
+      - "4200:4200"
+    expose:
+      - 4200
+  fragment-set-counter:
+    build:
+      context: ./fragment-set-counter
+      args:
+        - env=${env}
+    ports:
+      - "5000:5000"
+    expose:
+      - 5000
