@@ -1,6 +1,7 @@
 <head>
     <title>Poc Microfronts with Tailor example</title>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <link rel="manifest" href="./manifest.json">
     <style>
         body {
             background: #ECEFF4;
@@ -24,6 +25,16 @@
                 })
             })(i);
         }(['http://localhost:6006/public/bundleCommon.js']));
+
+        if ('serviceWorker' in navigator) {
+            console.log('yay')
+            window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+            .then((reg) => {
+                    console.log('Service Worker registered.', reg)
+                })
+            })
+        }
     </script>
 </head>
 
