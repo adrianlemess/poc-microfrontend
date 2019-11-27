@@ -13,9 +13,6 @@
 
 Clonar projeto
 
-```bash
-git clone https://adrian_caetano@bitbucket.org/orsegups/pocs-frontend.git
-```
 
 Entrar no diretório do tailor e instalar as dependências dele
 

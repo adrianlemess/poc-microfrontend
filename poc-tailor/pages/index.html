@@ -26,15 +26,15 @@
             })(i);
         }(['http://localhost:6006/public/bundleCommon.js']));
 
-        if ('serviceWorker' in navigator) {
-            console.log('yay')
-            window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
-            .then((reg) => {
-                    console.log('Service Worker registered.', reg)
-                })
-            })
-        }
+        // if ('serviceWorker' in navigator) {
+        //     console.log('yay')
+        //     window.addEventListener('load', () => {
+        //     navigator.serviceWorker.register('/sw.js')
+        //     .then((reg) => {
+        //             console.log('Service Worker registered.', reg)
+        //         })
+        //     })
+        // }
     </script>
 </head>
 
@@ -42,15 +42,14 @@
     <div id="header">
         <span class="fragment-error">Header failed to load</span>
     </div>
-    <fragment src="http://localhost:4200"></fragment>
+    <fragment async src="http://fragment-header:4200"></fragment>
 
     <div id="counter" style="margin-top: 300px;">
         <span class="fragment-error">Counter failed to load</span>
     </div>
-    <fragment src="http://localhost:5000"></fragment>
-
+    <fragment src="http://fragment-set-counter:5000"></fragment> 
     <counter-view></counter-view>
-    <fragment async src="http://localhost:4000"></fragment>
+    <fragment async src="http://fragment-counter-view:4000"></fragment>
 
     <p>
         <a href="/path1"> Link path1 </a>

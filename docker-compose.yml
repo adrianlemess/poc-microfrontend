@@ -3,7 +3,7 @@ services:
   # Serviços default e obrigatórios
   tailor:
     build:
-      context: ./poc-router-skipper
+      context: ./poc-tailor
       args:
         - env=${env}
     ports:
